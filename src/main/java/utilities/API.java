@@ -10,13 +10,18 @@ public class API {
 
         static String apiUrlsFileName  = "apiURLs.properties";
         static String configFileName  = "config.properties";
+        static String atsAPIFileName  = "atsAPIs.properties";
 
         static Properties urlprop = CommonFunctions.PropertyFileReader(apiUrlsFileName);
         static Properties configprop = CommonFunctions.PropertyFileReader(configFileName);
-
+        static Properties atsAPIprop = CommonFunctions.PropertyFileReader(atsAPIFileName);
 
         public static String getHostIP(){
                 return configprop.getProperty("hostIP");
+        }
+
+        public static String getATShostIP(){
+                return configprop.getProperty("ATShostIP");
         }
 
         public static String getinstalledVersion(){
@@ -135,6 +140,46 @@ public class API {
 
         public static String loadSession(){
                 return configprop.getProperty("hostIP") + urlprop.getProperty("loadSession");
+        }
+
+        public static String ats_retrieve_row(){
+                return atsAPIprop.getProperty("ats_retrieve_row");
+        }
+
+        public static String ats_retrieve_column(){
+                return atsAPIprop.getProperty("ats_retrieve_column");
+        }
+
+        public static String ats_send_row(){
+                return atsAPIprop.getProperty("ats_send_row");
+        }
+
+        public static String ats_send_column(){
+                return atsAPIprop.getProperty("ats_send_column");
+        }
+
+        public static String ats_rowdata(){
+                return configprop.getProperty("rowdata");
+        }
+
+        public static String ats_columndata(){
+                return configprop.getProperty("columndata");
+        }
+
+        public static String ats_sendrowdata(){
+                return configprop.getProperty("sendrowdata");
+        }
+
+        public static String ats_sendcolumndata(){
+                return configprop.getProperty("sendcolumndata");
+        }
+
+        public static String ats_updatecolumndata(){
+                return configprop.getProperty("updatecolumndata");
+
+        }
+        public static String ats_update_column(){
+                return atsAPIprop.getProperty("ats_update_column");
         }
 
 
