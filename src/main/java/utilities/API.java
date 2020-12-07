@@ -24,8 +24,16 @@ public class API {
                 return configprop.getProperty("ATShostIP");
         }
 
-        public static String getinstalledVersion(){
-                return configprop.getProperty("installedVersion");
+        public static String getinstalledZTVersion_data(){
+                return configprop.getProperty("installedZTVersion");
+        }
+
+        public static String getinstalledSSLVersion_data(){
+                return configprop.getProperty("defaultSSLVersion");
+        }
+
+        public static String DNSconfig_data(){
+                return configprop.getProperty("DNSconfig");
         }
 
         public static String getRecorderVersion(){
@@ -60,12 +68,20 @@ public class API {
                 return configprop.getProperty("hostIP") + urlprop.getProperty("getRecorderSSLVersion");
         }
 
-        public static String setRecorderSSLVersion(){
-                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderSSLVersion");
+        public static String setRecorderSSLVersionAll(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderSSLVersionAll");
+        }
+
+        public static String setRecorderSSLVersiontls12(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderSSLVersiontls12");
         }
 
         public static String getRecorderDNSConfig(){
                 return configprop.getProperty("hostIP") + urlprop.getProperty("getRecorderDNSConfig");
+        }
+
+        public static String setRecorderDNSConfig(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderDNSConfig");
         }
 
         public static String clearRecorderDNSResolveCache(){
@@ -158,29 +174,144 @@ public class API {
                 return atsAPIprop.getProperty("ats_send_column");
         }
 
-        public static String ats_rowdata(){
-                return configprop.getProperty("rowdata");
-        }
-
-        public static String ats_columndata(){
-                return configprop.getProperty("columndata");
-        }
-
-        public static String ats_sendrowdata(){
-                return configprop.getProperty("sendrowdata");
-        }
-
-        public static String ats_sendcolumndata(){
-                return configprop.getProperty("sendcolumndata");
-        }
-
-        public static String ats_updatecolumndata(){
-                return configprop.getProperty("updatecolumndata");
-
-        }
         public static String ats_update_column(){
                 return atsAPIprop.getProperty("ats_update_column");
         }
+
+        public static String ats_retrieve_table_size(){
+                return atsAPIprop.getProperty("ats_retrieve_table_size");
+        }
+
+        public static String data_rowdata(){
+                return configprop.getProperty("rowdata").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_wrongtable(){
+                return configprop.getProperty("wrongtable");
+        }
+
+        public static String data_wrongJSON(){
+                return configprop.getProperty("wrongJSON").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_columndata(){
+                return configprop.getProperty("columndata").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_sendRowData(){
+                return configprop.getProperty("sendRowData").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_tableName(){
+                return configprop.getProperty("tableName");
+        }
+
+        public static String data_sendUniqueRowData(){
+                return configprop.getProperty("sendUniqueRowData").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_sendStackedRowData(){
+                return configprop.getProperty("sendStackedRowData").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_sendnewrowdata(){
+                return configprop.getProperty("sendnewrowdata").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_sendcolumndata(){
+                return configprop.getProperty("sendcolumndata").replace("{tableName}", data_tableName());
+        }
+
+        public static String data_updatecolumndata(){
+                return configprop.getProperty("updatecolumndata").replace("{tableName}", data_tableName());
+
+        }
+        public static String data_tableJSON(){
+                return configprop.getProperty("tablejson").replace("{tableName}", data_tableName());
+
+        }
+        public static String data_wrongColumn(){
+                return configprop.getProperty("wrongColumn").replace("{tableName}", data_tableName());
+
+        }
+
+        public static String setRecorderBlacklist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderBlacklist");
+        }
+
+        public static String setRecorderWhitelist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderWhitelist");
+        }
+
+        public static String setRecorderURLBlacklist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderURLBlacklist");
+        }
+
+        public static String setRecorderURLWhitelist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderURLWhitelist");
+        }
+
+        public static String setRecorderURLRegexBlacklist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderURLRegexBlacklist");
+        }
+
+        public static String setRecorderURLRegexWhitelist(){
+                return configprop.getProperty("hostIP") + urlprop.getProperty("setRecorderURLRegexWhitelist");
+        }
+
+        public static String defaultRecorderBlacklistdata(){
+                // {RecorderBlacklist:[]}
+                return "{RecorderBlacklist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+
+        public static String defaultRecorderWhitelistdata(){
+                // {RecorderWhitelist:[]}
+                return "{RecorderWhitelist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+
+        public static String defaultRecorderURLBlacklistdata(){
+                // {RecorderURLBlacklist:[]}
+                return "{RecorderURLBlacklist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+        public static String defaultRecorderURLWhitelistdata(){
+                // {RecorderURLWhitelist:[]}
+                return "{RecorderURLWhitelist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+
+        public static String defaultRecorderURLRegexBlacklistdata(){
+                // {RecorderURLRegexBlacklist:[]}
+                return "{RecorderURLRegexBlacklist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+
+        public static String defaultRecorderURLRegexWhitelistdata(){
+                // {RecorderURLRegexWhitelist:[]}
+                return "{RecorderURLRegexWhitelist:" + configprop.getProperty("defaultRecorderdata") + "}";
+        }
+
+        public static String recorderBlacklistdata(){
+                return configprop.getProperty("recorderBlacklistdata");
+        }
+
+        public static String recorderWhitelistdata(){
+                return configprop.getProperty("recorderWhitelistdata");
+        }
+
+        public static String recorderURLBlacklistdata(){
+                return configprop.getProperty("recorderURLBlacklistdata");
+        }
+
+        public static String recorderURLWhitelistdata(){
+                return configprop.getProperty("recorderURLWhitelistdata");
+        }
+
+        public static String recorderURLRegexBlacklistdata(){
+                return configprop.getProperty("recorderURLRegexBlacklistdata");
+        }
+
+        public static String recorderURLRegexWhitelistdata(){
+                return configprop.getProperty("recorderURLRegexWhitelistdata");
+        }
+
 
 
 }
